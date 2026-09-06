@@ -1,0 +1,65 @@
+##############################################
+#                                            #
+#          Superfile Theme (Gentoo)          #
+#                                            #
+##############################################
+
+
+code_syntax_highlight = "rose-pine"
+
+###############################################################################
+#                                 Base Colors                                 #
+###############################################################################
+
+#-- Full Screen
+full_screen_fg = "#fafafa"
+full_screen_bg = "#000000"
+
+#-- Gradient (два цвета из палитры)
+gradient_color = ["#6e56af", "#ff00ff"]
+
+#-- File Panel
+file_panel_fg = "#fafafa"
+file_panel_bg = "#000000"
+file_panel_border = "#61538d"
+file_panel_border_active = "#dddaec"
+file_panel_top_directory_icon = "#6e56af"
+file_panel_top_path = "#0087BD"
+file_panel_item_selected_fg = "#000000"
+file_panel_item_selected_bg = "#dddaec"
+
+#-- Footer
+footer_fg = "#6e56af"
+footer_bg = "#000000"
+footer_border = "#54487a"
+footer_border_active = "#54487a"
+
+#-- Sidebar
+sidebar_fg = "#dddaec"
+sidebar_bg = "#000000"
+sidebar_title = "#61538d"
+sidebar_border = "#000000"
+sidebar_border_active = "#61538d"
+sidebar_item_selected_fg = "#000000"
+sidebar_item_selected_bg = "#dddaec"
+sidebar_divider = "#54487a"
+
+#-- Modals
+modal_fg = "#ff00ff"
+modal_bg = "#000000"
+modal_border_active = "#61538d"
+modal_cancel_fg = "#000000"
+modal_cancel_bg = "#dddaec"
+modal_confirm_fg = "#fafafa"
+modal_confirm_bg = "#d9534f"
+
+#-- Help Menu
+help_menu_hotkey = "#0087BD"
+help_menu_title = "#6e56af"
+
+#-- Special
+cursor = "#ff00ff"
+correct = "#6e56af"
+error = "#d9534f"
+hint = "#0087BD"
+cancel = "#dddaec"
