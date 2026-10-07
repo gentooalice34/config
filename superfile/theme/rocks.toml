@@ -1,0 +1,68 @@
+##############################################
+#                                            #
+#                 Rocks Theme                #
+#                                            #
+##############################################
+
+###############################################################################
+#                           Code Syntax Highlighting                          #
+###############################################################################
+
+code_syntax_highlight = "rose-pine"
+
+###############################################################################
+#                                 Base Colors                                 #
+###############################################################################
+
+full_screen_fg = "#c1c1c3"
+full_screen_bg = "#070711"
+
+#-- Gradient
+# Note: This currently only supports two colors.
+gradient_color = ["#c1c1c3", "#8a8483"]
+
+#-- File Panel
+file_panel_fg = "#c1c1c3"
+file_panel_bg = "#070711"
+file_panel_border = "#555560"
+file_panel_border_active = "#c1c1c3"
+file_panel_top_directory_icon = "#776f75"
+file_panel_top_path = "#9c8584"
+file_panel_item_selected_fg = "#c1c1c3"
+file_panel_item_selected_bg = "#595453"
+
+#-- Footer
+footer_fg = "#c1c1c3"
+footer_bg = "#070711"
+footer_border = "#555560"
+footer_border_active = "#c1c1c3"
+
+#-- Sidebar
+sidebar_fg = "#c1c1c3"
+sidebar_bg = "#070711"
+sidebar_title = "#8a8483"
+sidebar_border = "#555560"
+sidebar_border_active = "#776f75"
+sidebar_item_selected_fg = "#c1c1c3"
+sidebar_item_selected_bg = "#595453"
+sidebar_divider = "#555560"
+
+#-- Modals
+modal_fg = "#c1c1c3"
+modal_bg = "#070711"
+modal_border_active = "#c1c1c3"
+modal_cancel_fg = "#070711"
+modal_cancel_bg = "#776f75"
+modal_confirm_fg = "#070711"
+modal_confirm_bg = "#8a8483"
+
+#-- Help Menu
+help_menu_hotkey = "#c1c1c3"
+help_menu_title = "#8a8483"
+
+#-- Special
+cursor = "#c1c1c3"
+correct = "#8a8483"
+error = "#776f75"
+hint = "#555560"
+cancel = "#c1c1c3"

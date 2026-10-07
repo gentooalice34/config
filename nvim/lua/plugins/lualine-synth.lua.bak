@@ -1,0 +1,61 @@
+-- ~/.config/nvim/lua/plugins/lualine.lua
+return {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    -- Наши цвета Synthwave
+    local colors = {
+      bg = "#2a2139",      -- цвет панели (toolbar)
+      fg = "#79ffc4",      -- цвет текста (бирюзовый)
+      dark_bg = "#171529", -- темный фон (frame)
+      -- Для разных режимов
+      normal = "#ff7ed8",   -- нормальный режим (розовый)
+      insert = "#79ffc4",   -- режим вставки (бирюзовый)
+      visual = "#973DAD",   -- визуальный режим (пурпурный)
+      replace = "#482DA2",  -- замена (фиолетовый)
+      command = "#a1abbb",  -- командный режим (серый)
+    }
+
+    require('lualine').setup({
+      options = {
+        theme = {
+          normal = {
+            a = { bg = colors.normal, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.normal },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          insert = {
+            a = { bg = colors.insert, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.insert },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          visual = {
+            a = { bg = colors.visual, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.visual },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          replace = {
+            a = { bg = colors.replace, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.replace },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          command = {
+            a = { bg = colors.command, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.command },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+        },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { { "filename", path = 1 } }, -- показывает имя файла с относительным путем
+        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" }
+      },
+    })
+  end,
+}

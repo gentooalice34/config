@@ -1,0 +1,80 @@
+-- ~/.config/nvim/lua/plugins/lualine-kitty.lua
+return {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    -- Цвета из Kitty
+    local colors = {
+      bg = "#0b0b0c",        -- основной фон
+      fg = "#485a63",        -- основной текст
+      bright_fg = "#d9dadf", -- светлый текст
+      dark_bg = "#0b0b0c",   -- темный фон
+      
+      -- Цвета из палитры Kitty
+      color1 = "#8c0d1a",
+      color2 = "#5d625e",
+      color3 = "#8c7c5a",
+      color4 = "#2c3a5a",
+      color5 = "#3f2c5a",
+      color6 = "#485a63",
+      color7 = "#d9dadf",
+      color8 = "#c1c2c4",
+      color9 = "#a81423",
+      color10 = "#7b827d",
+      color11 = "#a6946c",
+      color12 = "#394b75",
+      color13 = "#553b78",
+      color14 = "#627985",
+      color15 = "#f0f1f5",
+      
+      -- Для разных режимов (используем цвета из палитры Kitty)
+      normal = "#a6946c",   -- режим NORMAL (желтоватый)
+      insert = "#627985",   -- режим INSERT (сине-серый)
+      visual = "#553b78",   -- режим VISUAL (фиолетовый)
+      replace = "#8c0d1a",  -- режим REPLACE (красный)
+      command = "#485a63",  -- режим COMMAND (серый)
+    }
+
+    require('lualine').setup({
+      options = {
+        theme = {
+          normal = {
+            a = { bg = colors.normal, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.normal },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          insert = {
+            a = { bg = colors.insert, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.insert },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          visual = {
+            a = { bg = colors.visual, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.visual },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          replace = {
+            a = { bg = colors.replace, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.replace },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          command = {
+            a = { bg = colors.command, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.command },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+        },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { { "filename", path = 1 } },
+        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" }
+      },
+    })
+  end,
+}

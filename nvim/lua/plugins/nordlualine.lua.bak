@@ -1,0 +1,116 @@
+-- ~/.config/nvim/lua/plugins/lualine.lua
+-- ~/.config/nvim/lua/plugins/lualine.lua
+return {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    -- Цвета в стиле Nord (из вашего kitty.conf)
+    local colors = {
+      bg = "#242933",        -- фон (background)
+      fg = "#D8DEE9",        -- текст (foreground)
+      dark_bg = "#2E3440",   -- темный фон (как в Nord)
+      
+      -- Акцентные цвета из Nord
+      normal = "#81A1C1",    -- синий (как color4)
+      insert = "#A3BE8C",    -- зеленый (как color2)
+      visual = "#B48EAD",    -- magenta (как color5)
+      replace = "#BF616A",   -- красный (как color1)
+      command = "#EBCB8B",   -- желтый (как color3)
+      
+      -- Дополнительные цвета
+      cyan = "#88C0D0",      -- color6
+      white = "#E5E9F0",     -- color7
+    }
+
+    require('lualine').setup({
+      options = {
+        theme = {
+          normal = {
+            a = { bg = colors.normal, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.normal },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          insert = {
+            a = { bg = colors.insert, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.insert },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          visual = {
+            a = { bg = colors.visual, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.visual },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          replace = {
+            a = { bg = colors.replace, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.replace },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          command = {
+            a = { bg = colors.command, fg = colors.dark_bg, gui = "bold" },
+            b = { bg = colors.bg, fg = colors.command },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          inactive = {
+            a = { bg = colors.bg, fg = colors.fg },
+            b = { bg = colors.bg, fg = colors.fg },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+        },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        -- Или используйте простые разделители:
+        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+      },
+      sections = {
+        lualine_a = { 
+          { 
+            "mode", 
+            separator = { left = "" },
+            right_padding = 2,
+          } 
+        },
+        lualine_b = { 
+          { "branch", icon = "" }, 
+          "diff", 
+          "diagnostics" 
+        },
+        lualine_c = { 
+          { 
+            "filename", 
+            path = 1,
+            symbols = {
+              modified = " ●",
+              readonly = " 🔒",
+              unnamed = " [No Name]",
+              newfile = " ✨",
+            }
+          } 
+        },
+        lualine_x = { 
+          { "encoding", padding = { left = 1 } },
+          "fileformat",
+          "filetype" 
+        },
+        lualine_y = { "progress" },
+        lualine_z = { 
+          { 
+            "location", 
+            separator = { right = "" },
+            left_padding = 2,
+          } 
+        }
+      },
+      inactive_sections = {
+        lualine_a = { "filename" },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { "location" }
+      },
+      tabline = {},
+      extensions = { "nvim-tree", "fzf" },
+    })
+  end,
+}

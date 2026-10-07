@@ -1,0 +1,68 @@
+##############################################
+#                                            #
+#           Synthwave 84 Theme               #
+#                                            #
+##############################################
+
+###############################################################################
+#                           Code Syntax Highlighting                          #
+###############################################################################
+
+code_syntax_highlight = "dracula"
+
+###############################################################################
+#                                 Base Colors                                 #
+###############################################################################
+
+full_screen_fg = "#ff7ed8"
+full_screen_bg = "#171529"
+
+#-- Gradient
+# Note: This currently only supports two colors.
+gradient_color = ["#ff7ed8", "#79ffc4"]
+
+#-- File Panel
+file_panel_fg = "#00ffff"
+file_panel_bg = "#171529"
+file_panel_border = "#482DA2"
+file_panel_border_active = "#ff7ed8"
+file_panel_top_directory_icon = "#973DAD"
+file_panel_top_path = "#79ffc4"
+file_panel_item_selected_fg = "#79ffc4"
+file_panel_item_selected_bg = "#3a2c4d"
+
+#-- Footer
+footer_fg = "#ff7ed8"
+footer_bg = "#171529"
+footer_border = "#482DA2"
+footer_border_active = "#ff7ed8"
+
+#-- Sidebar
+sidebar_fg = "#ff7ed8"
+sidebar_bg = "#171529"
+sidebar_title = "#79ffc4"
+sidebar_border = "#482DA2"
+sidebar_border_active = "#973DAD"
+sidebar_item_selected_fg = "#79ffc4"
+sidebar_item_selected_bg = "#3a2c4d"
+sidebar_divider = "#482DA2"
+
+#-- Modals
+modal_fg = "#ff7ed8"
+modal_bg = "#171529"
+modal_border_active = "#ff7ed8"
+modal_cancel_fg = "#171529"
+modal_cancel_bg = "#973DAD"
+modal_confirm_fg = "#171529"
+modal_confirm_bg = "#79ffc4"
+
+#-- Help Menu
+help_menu_hotkey = "#ff7ed8"
+help_menu_title = "#79ffc4"
+
+#-- Special
+cursor = "#ff7ed8"
+correct = "#79ffc4"
+error = "#973DAD"
+hint = "#482DA2"
+cancel = "#ff7ed8"
