@@ -11,9 +11,11 @@ static const int user_bh            = 45;
 static const char *fonts[]          = { "NotoSans-Regular:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
 
-static const char col_gray1[] = "#dddaec";
-static const char col_gray2[] = "#54487a";
-static const char col_gray3[] = "#fafafa";
+//gentoo static const char col_gray1[] = "#dddaec";
+//gentoo static const char col_gray2[] = "#54487a";
+static const char col_gray1[] = "#374962";
+static const char col_gray2[] = "#be9b8a";
+static const char col_gray3[] = "#374962";
 static const char col_gray4[] = "#ff00ff";
 static const char col_accent[] = "#d9534f";
 //nord static const char col_gray1[]       = "#2e3440"; 
@@ -72,6 +74,7 @@ static char dmenumon[2] = "0";
 //static const char *termcmd[]      = { "kitty", NULL };
 //static const char *filemgrcmd[]   = { "kitty", "-e", "spf", NULL };
 static const char *termcmd[]      = {"st", NULL};
+static const char *termcmd2[]  = { "st", "-e", "sh", "-c", "neofetch; exec $SHELL", NULL };
 static const char *filemgrcmd[]   = {"st", "-e", "spf", NULL};
 static const char *browsercmd[]   = { "firefox-bin", NULL };
 static const char *browser2cmd[]  = { "chromium-bin", NULL };
@@ -81,7 +84,8 @@ static const char *steamcmd[]     = { "steam", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key            function        argument */
-	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd } },       /* super+Return -> kitty */
+	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd } },/* super+Return -> kitty */
+  { MODKEY|ShiftMask,             XK_Return,     spawn,          {.v = termcmd2 } },
 	{ MODKEY,                       XK_q,          killclient,     {0} },                   /* super+q -> bspc node -c */
 	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,           {.i = 0} },               /* logout (dwm has no bspwm-style "always running" model) */
 	{ MODKEY|ShiftMask,             XK_r,          quit,           {.i = 1} },               /* super+shift+r -> bspc wm -r (restartsig patch) */
@@ -134,12 +138,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,          setlayout,      {.v = &layouts[0]} },    /* super+t -> bspc node -t tiled */
   { MODKEY,                       XK_m,          setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_d,          spawn,          SHCMD("~/.config/rofi/launchers/type-3/launcher.sh") },  /* super+d -> rofi launcher */
-	{ 0,                             XK_Print,      spawn,         SHCMD("scrot -e 'mv $f ~/Pictures/Screenshots/'") },
+	{ 0,                            XK_Print,      spawn,         SHCMD("scrot -e 'mv $f ~/Pictures/Screenshots/'") },
 	{ MODKEY,                       XK_Print,      spawn,          SHCMD("scrot -s -e 'mv $f ~/Pictures/Screenshots/'") },
 
 	{ MODKEY,                       XK_b,          spawn,          {.v = browsercmd } },
-	{ MODKEY|Mod1Mask,               XK_b,          spawn,          {.v = browser2cmd } },
-	{ MODKEY,                       XK_x,          spawn,          {.v = codecmd } },
+	{ MODKEY|Mod1Mask,              XK_b,          spawn,          {.v = browser2cmd } },
+	{ MODKEY,                       XK_x,          spawn,          {.v = codecmd } },                       
 	{ MODKEY,                       XK_e,          spawn,          {.v = filemgrcmd } },
 	{ MODKEY|ShiftMask,             XK_e,          spawn,          {.v = thunarcmd } },
 	{ MODKEY,                       XK_p,          spawn,          {.v = steamcmd } },
