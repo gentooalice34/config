@@ -5,10 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Source Code Pro:style=Medium:size=12";
+static char *font = "TerminessNerdFont:style:Regular:size=13";
 /* Spare fonts */
 static char *font2[] = {
-    "Symbols Nerd Font Mono:size=12",
+    "Symbols Nerd Font Mono:size=13",
 /*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
 };
 
@@ -32,8 +32,8 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
-static float cwscale = 1.0;
-static float chscale = 1.0;
+static float cwscale = 1.05;
+static float chscale = 1;
 
 /*
  * word delimiter string
@@ -93,7 +93,7 @@ static int bellvolume = 0;
 
 /* default TERM value */
 char *termname = "st-256color";
-
+float alpha = 1.0;
 /*
  * spaces per tab
  *
@@ -114,31 +114,31 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	[0] = "#000000",   /* black   (background) */
-	[1] = "#d9534f",   /* red     */
-	[2] = "#61538d",   /* green   */
-	[3] = "#6e56af",   /* yellow  */
-	[4] = "#6e56af",   /* blue    */
-	[5] = "#ff00ff",   /* magenta */
-	[6] = "#61538d",   /* cyan    */
-	[7] = "#dddaec",   /* white   (комментарий в kitty.conf: # black 3b4252 4c566a) */
+  [0] = "#0c0509",   /* black   */
+	[1] = "#732a12",   /* red     */
+	[2] = "#374962",   /* green   */
+	[3] = "#4c5a6e",   /* yellow  */
+	[4] = "#795f4b",   /* blue    */
+	[5] = "#827c7f",   /* magenta */
+	[6] = "#be9b8a",   /* cyan    */
+	[7] = "#c2c0c1",   /* white   */
 
 	/* 8 bright colors */
-	[8]  = "#fafafa",   /* bright black   (color8) */
-	[9]  = "#d9634f",   /* bright red     (color9) */
-	[10] = "#61538d",   /* bright green   (color10) */
-	[11] = "#6e56af",   /* bright yellow  (color11) */
-	[12] = "#fafafa",   /* bright blue    (color12) */
-	[13] = "#ff00ff",   /* bright magenta (color13) */
-	[14] = "#61538d",   /* bright cyan    (color14) */
-	[15] = "#dddaec",   /* bright white   (color15) */
+	[8]  = "#675560",   /* bright black   */
+	[9]  = "#732a12",   /* bright red     */
+	[10] = "#374962",   /* bright green   */
+	[11] = "#4c5a6e",   /* bright yellow  */
+	[12] = "#795f4b",   /* bright blue    */
+	[13] = "#827c7f",   /* bright magenta */
+	[14] = "#be9b8a",   /* bright cyan    */
+	[15] = "#c2c0c1",   /* bright white   */
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#fafafa", /* 256: default foreground (from kitty.conf) */
-	"#000000", /* 257: default background (from kitty.conf) */
-	"#fafafa", /* 258: default cursor (from kitty.conf) */
+	"#c2c0c1", /* 256: default foreground (from kitty.conf) */
+	"#0c0509", /* 257: default background (from kitty.conf) */
+	"#c2c0c1", /* 258: default cursor (from kitty.conf) */
 };
 /*
  * Default colors (colorname index)
@@ -154,11 +154,11 @@ static unsigned int defaultrcs = 258;
  * Default style of cursor
  * 0: blinking block
  * 1: blinking block (default)
- * 2: steady block ("█")
+ * 2: steady block ("|")
  * 3: blinking underline
  * 4: steady underline ("_")
  * 5: blinking bar
- * 6: steady bar ("|")
+ * 6: steady bar ("█")
  * 7: blinking st cursor
  * 8: steady st cursor
  */
