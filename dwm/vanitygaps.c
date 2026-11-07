@@ -798,6 +798,19 @@ tile(Monitor *m)
 	if (n == 0)
 		return;
 
+	/* centeronlywindow: center a lone client if it opted in via rules */
+	if (n == 1) {
+		c = nexttiled(m->clients);
+		if (c->iscenteredalone) {
+			int cw = m->ww * center_width;
+			int ch = m->wh * center_height;
+			int cx = m->wx + (m->ww - cw) / 2;
+			int cy = m->wy + (m->wh - ch) / 2;
+			resize(c, cx, cy, cw - (2 * c->bw), ch - (2 * c->bw), 0);
+			return;
+		}
+	}
+
 	sx = mx = m->wx + ov;
 	sy = my = m->wy + oh;
 	mh = m->wh - 2*oh - ih * (MIN(n, m->nmaster) - 1);
