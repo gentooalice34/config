@@ -3,13 +3,15 @@ static const unsigned int borderpx  = 2;
 static const unsigned int snap      = 32;
 static const int showbar            = 1;
 static const int topbar             = 1;
+static const int vertpadbar         = 0;
+static const int horizpadbar        = 2;
 static const int resizehints        = 0;        
 static const int lockfullscreen     = 1;
 static const int reservedbar        = 0;       
 static const int bartype            = 0;        
-static const int user_bh            = 8;        
-static const char *fonts[]          = { "TerminessNerdFont:style=Regular:size=13" };
-static const char dmenufont[]       = "monospace:size=10";
+static const int user_bh            = 6;        
+static const char *fonts[]          = { "Terminus:style=Medium:size=12","SymbolsNerdFont:size=12"};  
+static const char dmenufont[]       = "SymbolsNerdFont:size=12";
 
 //gentoo static const char col_gray1[] = "#dddaec";
 //gentoo static const char col_gray2[] = "#54487a";
@@ -35,19 +37,23 @@ static const unsigned int gappiv    = 6;
 static const unsigned int gappoh    = 6;
 static const unsigned int gappov    = 6;
 static       int smartgaps          = 0;        /* gapless_mode true: no outer gap w/ 1 client */
+static const float center_width = 0.7;
+static const float center_height = 0.7;
 #include "vanitygaps.c"
 
 /* tagging — dwm only supports 9 numbered tags off keys 1-9.
  * bspwm's 10th desktop ("0") has no clean home: dwm's "0" key is the
  * built-in "view all tags" shortcut. Left as 9 tags; see PATCHES.md
  * if you want to sacrifice that shortcut for a literal 10th tag. */
-static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", "󰨇 ", "" };
+static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", "󰨇 ", "󰨇" };
 //
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Screenkey",NULL,       NULL,       0,            1,           -1 },
-  { "polybar",  NULL,       NULL,       0,            1,           -1 },/* bspc rule -a Screenkey manage=off */
+	/* class      instance    title       tags mask     isfloating   iscenteredalone   monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,           0,                -1 },
+	{ "Screenkey",NULL,       NULL,       0,            1,           0,                -1 },
+	{ "polybar",  NULL,       NULL,       0,            1,           0,                -1 },
+  { "st",       NULL,       NULL,       0,            0,           1,                -1 },
+  { "Thunar",   NULL,       NULL,       0,            0,           1,                -1 },
 };
 
 /* layout(s) — split_ratio 0.52 */
@@ -76,8 +82,8 @@ static char dmenumon[2] = "0";
 static const char *termcmd[]      = {"st", NULL};
 static const char *termcmd2[]  = { "st", "-e", "sh", "-c", "neofetch; exec $SHELL", NULL };
 static const char *filemgrcmd[]   = {"st", "-e", "spf", NULL};
-static const char *browsercmd[]   = { "firefox-bin", NULL };
-static const char *browser2cmd[]  = { "chromium-bin", NULL };
+static const char *browsercmd[]   = { "firefox", NULL };
+static const char *browser2cmd[]  = { "chromium", NULL };
 static const char *codecmd[]      = { "code", NULL };
 static const char *thunarcmd[]    = { "thunar", NULL };
 static const char *steamcmd[]     = { "steam", NULL };
