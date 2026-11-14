@@ -473,7 +473,7 @@ deck(Monitor *m)
  */
 void
 fibonacci(Monitor *m, int s)
-{
+{ 
 	unsigned int i, n;
 	int nx, ny, nw, nh;
 	int oh, ov, ih, iv;
@@ -483,6 +483,18 @@ fibonacci(Monitor *m, int s)
 	getgaps(m, &oh, &ov, &ih, &iv, &n);
 	if (n == 0)
 		return;
+
+  if (n == 1) {
+     c = nexttiled(m->clients);
+     if (c->iscenteredalone) {
+         int cw = m->ww * center_width;
+         int ch = m->wh * center_height;
+         int cx = m->wx + (m->ww - cw) / 2;
+         int cy = m->wy + (m->wh - ch) / 2;
+         resize(c, cx, cy, cw - (2 * c->bw), ch - (2 * c->bw), 0);
+         return;
+    }
+} 
 
 	nx = m->wx + ov;
 	ny = m->wy + oh;
@@ -802,8 +814,8 @@ tile(Monitor *m)
 	if (n == 1) {
 		c = nexttiled(m->clients);
 		if (c->iscenteredalone) {
-			int cw = m->ww * center_width;
-			int ch = m->wh * center_height;
+      int cw = m->ww * center_width;
+      int ch = m->wh * center_height;	
 			int cx = m->wx + (m->ww - cw) / 2;
 			int cy = m->wy + (m->wh - ch) / 2;
 			resize(c, cx, cy, cw - (2 * c->bw), ch - (2 * c->bw), 0);

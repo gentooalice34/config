@@ -1,52 +1,49 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        
 static const unsigned int snap      = 32;
-static const int showbar            = 1;
-static const int topbar             = 1;
-static const int vertpadbar         = 0;
-static const int horizpadbar        = 2;
+static const int showbar            = 0;
+static const int topbar             = 0;
 static const int resizehints        = 0;        
 static const int lockfullscreen     = 1;
-static const int reservedbar        = 0;       
+static const int reservedbar        = 1;       
 static const int bartype            = 0;        
-static const int user_bh            = 6;        
-static const char *fonts[]          = { "Terminus:style=Medium:size=12","SymbolsNerdFont:size=12"};  
-static const char dmenufont[]       = "SymbolsNerdFont:size=12";
+static const int user_bh            = 45;        
+static const char *fonts[]          = { "NotoSans-Regular:size=12" };
+static const char dmenufont[]       = "monospace:size=10";
 
 //gentoo static const char col_gray1[] = "#dddaec";
 //gentoo static const char col_gray2[] = "#54487a";
-static const char col_bg[]      = "#0c0509"; 
-static const char col_fg[]      = "#be9b8a";  
-static const char col_primary[] = "#4c5a6e";  
-static const char col_yellow[]  = "#be9b8a";  
-static const char col_red[]     = "#795f4b";  
-static const char col_green[]   = "#374962";  
+static const char col_gray1[] = "#374962";
+static const char col_gray2[] = "#be9b8a";
+static const char col_gray3[] = "#374962";
+static const char col_gray4[] = "#ff00ff";
+static const char col_accent[] = "#d9534f";
 //nord static const char col_gray1[]       = "#2e3440"; 
 //static const char col_gray2[]       = "#3b4252";
 //static const char col_gray3[]       = "#d8dee9";
 //static const char col_gray4[]       = "#eceff4";
 //static const char col_accent[]      = "#81a1c1";
-static const char *colors[][3] = {
-	/*               fg          bg          border   */
-	[SchemeNorm] = { col_fg,      col_bg,     col_green  },  /* неактивные теги / окна */
-	[SchemeSel]  = { col_primary, col_bg,     col_yellow },  /* активный тег / фокус */
+static const char *colors[][3]      = {
+	/*               fg         bg         border      */
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2   },
+	[SchemeSel]  = { col_gray4, col_gray1, col_gray3   }, /* focused_border_color d8dee9 */
 };
+
 /* vanitygaps — mirrors bspc config window_gap 6 */
 static const unsigned int gappih    = 6;
 static const unsigned int gappiv    = 6;
 static const unsigned int gappoh    = 6;
 static const unsigned int gappov    = 6;
-static       int smartgaps          = 0;        /* gapless_mode true: no outer gap w/ 1 client */
+static       int smartgaps          = 1;        /* gapless_mode true: no outer gap w/ 1 client */
 static const float center_width = 0.7;
 static const float center_height = 0.7;
-#include "vanitygaps.c"
-
 /* tagging — dwm only supports 9 numbered tags off keys 1-9.
  * bspwm's 10th desktop ("0") has no clean home: dwm's "0" key is the
  * built-in "view all tags" shortcut. Left as 9 tags; see PATCHES.md
  * if you want to sacrifice that shortcut for a literal 10th tag. */
-static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", "󰨇 ", "󰨇" };
-//
+#include "vanitygaps.c"
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   iscenteredalone   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           0,                -1 },
@@ -65,8 +62,9 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* super+t : tiled, gapped via vanitygaps */
 	{ "><>",      NULL },    /* super+s : floating */
 	{ "[M]",      monocle }, /* monocle has no gaps/no extra border logic already ~= borderless_monocle */
+  { "[@]",      spiral },
+  { "\\",       dwindle},
 };
-
 #define MODKEY Mod4Mask      /* bspwmrc: pointer_modifier mod4 -> super, not alt */
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -82,7 +80,7 @@ static char dmenumon[2] = "0";
 static const char *termcmd[]      = {"st", NULL};
 static const char *termcmd2[]  = { "st", "-e", "sh", "-c", "neofetch; exec $SHELL", NULL };
 static const char *filemgrcmd[]   = {"st", "-e", "spf", NULL};
-static const char *browsercmd[]   = { "firefox", NULL };
+static const char *browsercmd[]   = { "firefox-bin", NULL };
 static const char *browser2cmd[]  = { "chromium-bin", NULL };
 static const char *codecmd[]      = { "code", NULL };
 static const char *thunarcmd[]    = { "thunar", NULL };
@@ -96,7 +94,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,           {.i = 0} },               /* logout (dwm has no bspwm-style "always running" model) */
 	{ MODKEY|ShiftMask,             XK_r,          quit,           {.i = 1} },               /* super+shift+r -> bspc wm -r (restartsig patch) */
 	{ MODKEY|ShiftMask,             XK_q,          killalltag,     {0} },                   /* super+shift+q -> close every window on this tag (custom fn) */
-	{ MODKEY|ShiftMask, 			XK_0, 		   tag, 		   { .i = -1 } },
+
 	/* OPTIONAL: only if you applied the community hide/restore patch
 	 * (needs the awesomebar patch too — see PATCHES.md). Otherwise
 	 * leave commented out; dwm.c won't have hidewin/restorewin.
@@ -143,6 +141,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,          togglefloating, {0} },                   /* super+s -> bspc node -t floating */
 	{ MODKEY,                       XK_t,          setlayout,      {.v = &layouts[0]} },    /* super+t -> bspc node -t tiled */
   { MODKEY,                       XK_m,          setlayout,      {.v = &layouts[2]} },
+  { MODKEY|ControlMask,           XK_r,          setlayout,      {.v = &layouts[3]} },
+  { MODKEY|ControlMask,           XK_d,          setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_d,          spawn,          SHCMD("~/.config/rofi/launchers/type-3/launcher.sh") },  /* super+d -> rofi launcher */
 	{ 0,                            XK_Print,      spawn,         SHCMD("scrot -e 'mv $f ~/Pictures/Screenshots/'") },
 	{ MODKEY,                       XK_Print,      spawn,          SHCMD("scrot -s -e 'mv $f ~/Pictures/Screenshots/'") },
