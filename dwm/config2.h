@@ -96,7 +96,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,           {.i = 0} },               /* logout (dwm has no bspwm-style "always running" model) */
 	{ MODKEY|ShiftMask,             XK_r,          quit,           {.i = 1} },               /* super+shift+r -> bspc wm -r (restartsig patch) */
 	{ MODKEY|ShiftMask,             XK_q,          killalltag,     {0} },                   /* super+shift+q -> close every window on this tag (custom fn) */
-
+	{ MODKEY|ShiftMask, 			XK_0, 	       tag, 		   { .i = -1 } },
 	/* OPTIONAL: only if you applied the community hide/restore patch
 	 * (needs the awesomebar patch too — see PATCHES.md). Otherwise
 	 * leave commented out; dwm.c won't have hidewin/restorewin.
