@@ -114,31 +114,31 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-  [0] = "#0c0509",   /* black   */
-	[1] = "#732a12",   /* red     */
-	[2] = "#374962",   /* green   */
-	[3] = "#4c5a6e",   /* yellow  */
-	[4] = "#795f4b",   /* blue    */
-	[5] = "#827c7f",   /* magenta */
-	[6] = "#be9b8a",   /* cyan    */
-	[7] = "#c2c0c1",   /* white   */
+  [0] = "#080814",   /* black   */
+	[1] = "#4f4e65",   /* red     */
+	[2] = "#54556d",   /* green   */
+	[3] = "#676782",   /* yellow  */
+	[4] = "#8d8aa9",   /* blue    */
+	[5] = "#9892b0",   /* magenta */
+	[6] = "#9695af",   /* cyan    */
+	[7] = "#c1c1c4",   /* white   */
 
 	/* 8 bright colors */
-	[8]  = "#675560",   /* bright black   */
-	[9]  = "#732a12",   /* bright red     */
-	[10] = "#374962",   /* bright green   */
-	[11] = "#4c5a6e",   /* bright yellow  */
-	[12] = "#795f4b",   /* bright blue    */
-	[13] = "#827c7f",   /* bright magenta */
-	[14] = "#be9b8a",   /* bright cyan    */
-	[15] = "#c2c0c1",   /* bright white   */
+	[8]  = "#58586b",   /* bright black   */
+	[9]  = "#4f4e65",   /* bright red     */
+	[10] = "#54556d",   /* bright green   */
+	[11] = "#676782",   /* bright yellow  */
+	[12] = "#8d8aa9",   /* bright blue    */
+	[13] = "#9892b0",   /* bright magenta */
+	[14] = "#9695af",   /* bright cyan    */
+	[15] = "#c1c1c4",   /* bright white   */
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#c2c0c1", /* 256: default foreground (from kitty.conf) */
-	"#0c0509", /* 257: default background (from kitty.conf) */
-	"#c2c0c1", /* 258: default cursor (from kitty.conf) */
+	"#c1c1c4", /* 256: default foreground (from kitty.conf) */
+	"#080814", /* 257: default background (from kitty.conf) */
+	"#c1c1c4", /* 258: default cursor (from kitty.conf) */
 };
 /*
  * Default colors (colorname index)
