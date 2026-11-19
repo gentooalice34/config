@@ -13,16 +13,22 @@ static const char dmenufont[]       = "monospace:size=10";
 
 //gentoo static const char col_gray1[] = "#dddaec";
 //gentoo static const char col_gray2[] = "#54487a";
-static const char col_gray1[] = "#374962";
-static const char col_gray2[] = "#be9b8a";
-static const char col_gray3[] = "#374962";
-static const char col_gray4[] = "#ff00ff";
-static const char col_accent[] = "#d9534f";
+//aero static const char col_gray1[] = "#374962";
+//aero static const char col_gray2[] = "#be9b8a";
+//aero static const char col_gray3[] = "#374962";
+//static const char col_gray4[] = "#ff00ff";
+//aero static const char col_accent[] = "#d9534f";
 //nord static const char col_gray1[]       = "#2e3440"; 
 //static const char col_gray2[]       = "#3b4252";
 //static const char col_gray3[]       = "#d8dee9";
 //static const char col_gray4[]       = "#eceff4";
 //static const char col_accent[]      = "#81a1c1";
+static const char col_gray1[] = "#4f4e65"; 
+static const char col_gray2[] = "#080814";
+static const char col_gray3[] = "#676782";
+static const char col_gray4[] = "#8d8aa9";
+static const char col_accent[] = "#9892b0";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border      */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2   },
